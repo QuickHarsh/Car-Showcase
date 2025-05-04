@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Audi</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .products-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        
+        .filter-section {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .filter-group label {
+            color: #b0b0b0;
+            margin-bottom: 10px;
+        }
+        
+        .filter-group select {
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #222;
+            color: #f4f4f4;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h2 {
+            color: #f4f4f4;
+            margin-bottom: 10px;
+        }
+        
+        .product-info p {
+            color: #b0b0b0;
+            margin-bottom: 15px;
+        }
+        
+        .product-specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .spec-item {
+            background-color: #222;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .spec-item h4 {
+            color: #b0b0b0;
+            margin-bottom: 5px;
+        }
+        
+        .spec-item p {
+            color: #f4f4f4;
+            margin: 0;
+        }
+        
+        .product-cta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .price {
+            color: #f4f4f4;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .view-details {
+            padding: 10px 20px;
+            background-color: #b0b0b0;
+            color: #1a1a1a;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .view-details:hover {
+            background-color: #f4f4f4;
+        }
+        
+        .category-section {
+            margin-bottom: 60px;
+        }
+        
+        .category-section h2 {
+            color: #f4f4f4;
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 4px solid #b0b0b0;
+        }
+    </style>
+</head>
+<body>
+    <header> 
+        <nav class="navbar">
+            <div class="logoContent">
+                <img src="images/6937487_preview.png" alt="Audi Logo">
+            </div>
+            <div class="links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="products.html">Products</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="products-container">
+        <div class="filter-section">
+            <div class="filter-grid">
+                <div class="filter-group">
+                    <label for="category">Category</label>
+                    <select id="category">
+                        <option value="all">All Categories</option>
+                        <option value="sedan">Sedan</option>
+                        <option value="suv">SUV</option>
+                        <option value="sport">Sport</option>
+                        <option value="electric">Electric</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="price">Price Range</label>
+                    <select id="price">
+                        <option value="all">All Prices</option>
+                        <option value="under-50k">Under $50,000</option>
+                        <option value="50k-100k">$50,000 - $100,000</option>
+                        <option value="over-100k">Over $100,000</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="engine">Engine Type</label>
+                    <select id="engine">
+                        <option value="all">All Engines</option>
+                        <option value="gasoline">Gasoline</option>
+                        <option value="diesel">Diesel</option>
+                        <option value="electric">Electric</option>
+                        <option value="hybrid">Hybrid</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="sort">Sort By</label>
+                    <select id="sort">
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name: A to Z</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2>Sedan Models</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/rs7.jpg" alt="Audi RS 7">
+                    </div>
+                    <div class="product-info">
+                        <h2>Audi RS 7</h2>
+                        <p>The ultimate expression of performance and luxury in a four-door coupe.</p>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <h4>Engine</h4>
+                                <p>4.0L V8</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Power</h4>
+                                <p>591 HP</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>0-60 mph</h4>
+                                <p>3.5s</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Top Speed</h4>
+                                <p>190 mph</p>
+                            </div>
+                        </div>
+                        <div class="product-cta">
+                            <span class="price">Starting at $114,000</span>
+                            <a href="car-details.html" class="view-details">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/s8.jpg" alt="Audi S8">
+                    </div>
+                    <div class="product-info">
+                        <h2>Audi S8</h2>
+                        <p>Luxury and performance redefined in a full-size sedan.</p>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <h4>Engine</h4>
+                                <p>4.0L V8</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Power</h4>
+                                <p>563 HP</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>0-60 mph</h4>
+                                <p>3.8s</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Top Speed</h4>
+                                <p>155 mph</p>
+                            </div>
+                        </div>
+                        <div class="product-cta">
+                            <span class="price">Starting at $130,000</span>
+                            <a href="car-details.html" class="view-details">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2>SUV Models</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/q3_1.jpg" alt="Audi Q3">
+                    </div>
+                    <div class="product-info">
+                        <h2>Audi Q3</h2>
+                        <p>Compact luxury SUV with dynamic design and advanced technology.</p>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <h4>Engine</h4>
+                                <p>2.0L TFSI</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Power</h4>
+                                <p>228 HP</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>0-60 mph</h4>
+                                <p>6.3s</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>MPG</h4>
+                                <p>28/34</p>
+                            </div>
+                        </div>
+                        <div class="product-cta">
+                            <span class="price">Starting at $36,000</span>
+                            <a href="car-details.html" class="view-details">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/q5.jpg" alt="Audi Q5">
+                    </div>
+                    <div class="product-info">
+                        <h2>Audi Q5</h2>
+                        <p>Premium midsize SUV with exceptional comfort and performance.</p>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <h4>Engine</h4>
+                                <p>2.0L TFSI</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Power</h4>
+                                <p>261 HP</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>0-60 mph</h4>
+                                <p>5.7s</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>MPG</h4>
+                                <p>23/29</p>
+                            </div>
+                        </div>
+                        <div class="product-cta">
+                            <span class="price">Starting at $43,300</span>
+                            <a href="car-details.html" class="view-details">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/q7.jpg" alt="Audi Q7">
+                    </div>
+                    <div class="product-info">
+                        <h2>Audi Q7</h2>
+                        <p>Luxury three-row SUV with sophisticated technology and spacious comfort.</p>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <h4>Engine</h4>
+                                <p>3.0L TFSI</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Power</h4>
+                                <p>335 HP</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>0-60 mph</h4>
+                                <p>5.7s</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>MPG</h4>
+                                <p>19/24</p>
+                            </div>
+                        </div>
+                        <div class="product-cta">
+                            <span class="price">Starting at $58,500</span>
+                            <a href="car-details.html" class="view-details">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2>Electric Vehicles</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/e-tron.jpg" alt="Audi e-tron">
+                    </div>
+                    <div class="product-info">
+                        <h2>Audi e-tron</h2>
+                        <p>Premium electric SUV with exceptional range and performance.</p>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <h4>Battery</h4>
+                                <p>95 kWh</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Power</h4>
+                                <p>402 HP</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Range</h4>
+                                <p>222 miles</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>0-60 mph</h4>
+                                <p>5.5s</p>
+                            </div>
+                        </div>
+                        <div class="product-cta">
+                            <span class="price">Starting at $65,900</span>
+                            <a href="car-details.html" class="view-details">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/e-tron-gt.jpg" alt="Audi e-tron GT">
+                    </div>
+                    <div class="product-info">
+                        <h2>Audi e-tron GT</h2>
+                        <p>Electric grand tourer with stunning design and exhilarating performance.</p>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <h4>Battery</h4>
+                                <p>93 kWh</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Power</h4>
+                                <p>522 HP</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Range</h4>
+                                <p>238 miles</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>0-60 mph</h4>
+                                <p>3.9s</p>
+                            </div>
+                        </div>
+                        <div class="product-cta">
+                            <span class="price">Starting at $102,400</span>
+                            <a href="car-details.html" class="view-details">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/q4-e-tron.jpg" alt="Audi Q4 e-tron">
+                    </div>
+                    <div class="product-info">
+                        <h2>Audi Q4 e-tron</h2>
+                        <p>Compact electric SUV with premium features and impressive efficiency.</p>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <h4>Battery</h4>
+                                <p>82 kWh</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Power</h4>
+                                <p>295 HP</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Range</h4>
+                                <p>241 miles</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>0-60 mph</h4>
+                                <p>5.8s</p>
+                            </div>
+                        </div>
+                        <div class="product-cta">
+                            <span class="price">Starting at $49,800</span>
+                            <a href="car-details.html" class="view-details">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="carSound" preload="auto">
+        <source src="sounds/car-accelerate.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carSound = document.getElementById('carSound');
+            const productCards = document.querySelectorAll('.product-card');
+            
+            productCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    carSound.currentTime = 0; // Reset sound to start
+                    carSound.play();
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    carSound.pause();
+                });
+            });
+        });
+    </script>
+
+    <footer class="foot">
+        <div class="end">
+            <ul class="explore">
+                <h3>Explore</h3>
+                <li>Models</li>
+                <li>Audi Sport</li>
+                <li>What is e-tron®</li>
+                <li>SUV Models</li>
+                <li>Audi Experience</li>
+            </ul>
+            <ul class="shop">
+                <h3>Shop</h3>
+                <li>Special Offers</li>
+                <li>Find a dealer</li>
+                <li>New inventory</li>
+                <li>Pre-owned inventory</li>
+                <li>Certified pre-owned</li>
+            </ul>
+            <ul class="buy">
+                <h3>Buy</h3>
+                <li>Contact dealer</li>
+                <li>Trade-in value</li>
+                <li>Leasing</li>
+                <li>Financing</li>
+                <li>Apply for financing</li>
+            </ul>
+            <ul class="own">
+                <h3>Owner</h3>
+                <li>myAudi</li>
+                <li>About myAudi</li>
+                <li>Audi Financial Services</li>
+                <li>Service and Parts</li>
+                <li>Roadside Assistance</li>
+            </ul>
+            <ul class="support">
+                <h3>Support</h3>
+                <li>Contact Us</li>
+                <li>Help</li>
+                <li>About Audi</li>
+                <li>Careers</li>
+                <li>Newsroom</li>
+                <li>Emissions Modification Lookup</li>
+                <li>Accessibility</li>
+                <li>Recalls</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html> 

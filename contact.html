@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Audi</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            background-color: #222;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .contact-info h2 {
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .info-item i {
+            font-size: 24px;
+            color: #b0b0b0;
+        }
+        
+        .contact-form {
+            background-color: #222;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #b0b0b0;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #1a1a1a;
+            color: #f4f4f4;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: #b0b0b0;
+            color: #1a1a1a;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #f4f4f4;
+        }
+        
+        .map-container {
+            margin-top: 40px;
+            height: 400px;
+            background-color: #222;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <header> 
+        <nav class="navbar">
+            <div class="logoContent">
+                <img src="images/6937487_preview.png" alt="Audi Logo">
+            </div>
+            <div class="links">
+                <a href="index.html">Home</a>
+                <a href="#">About Us</a>
+                <a href="#">Products</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="contact-container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <div class="info-item">
+                    <i>📍</i>
+                    <div>
+                        <h3>Address</h3>
+                        <p>123 Audi Drive, Ingolstadt, Germany</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i>📞</i>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>+1 (800) 822-2834</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i>✉️</i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>info@audi.com</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i>⏰</i>
+                    <div>
+                        <h3>Business Hours</h3>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                        <p>Saturday: 10:00 AM - 4:00 PM</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h2>Send us a Message</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="sales">Sales Inquiry</option>
+                            <option value="service">Service Appointment</option>
+                            <option value="test-drive">Test Drive Request</option>
+                            <option value="general">General Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="map-container">
+            <!-- You can add a Google Maps embed here -->
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2595.1556476000003!2d11.4225!3d48.7667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e9c1c2c7b3b3b%3A0x3b3b3b3b3b3b3b3b!2sAudi%20AG!5e0!3m2!1sen!2sus!4v1234567890"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <footer class="foot">
+        <div class="end">
+            <ul class="explore">
+                <h3>Explore</h3>
+                <li>Models</li>
+                <li>Audi Sport</li>
+                <li>What is e-tron®</li>
+                <li>SUV Models</li>
+                <li>Audi Experience</li>
+            </ul>
+            <ul class="shop">
+                <h3>Shop</h3>
+                <li>Special Offers</li>
+                <li>Find a dealer</li>
+                <li>New inventory</li>
+                <li>Pre-owned inventory</li>
+                <li>Certified pre-owned</li>
+            </ul>
+            <ul class="buy">
+                <h3>Buy</h3>
+                <li>Contact dealer</li>
+                <li>Trade-in value</li>
+                <li>Leasing</li>
+                <li>Financing</li>
+                <li>Apply for financing</li>
+            </ul>
+            <ul class="own">
+                <h3>Owner</h3>
+                <li>myAudi</li>
+                <li>About myAudi</li>
+                <li>Audi Financial Services</li>
+                <li>Service and Parts</li>
+                <li>Roadside Assistance</li>
+            </ul>
+            <ul class="support">
+                <h3>Support</h3>
+                <li>Contact Us</li>
+                <li>Help</li>
+                <li>About Audi</li>
+                <li>Careers</li>
+                <li>Newsroom</li>
+                <li>Emissions Modification Lookup</li>
+                <li>Accessibility</li>
+                <li>Recalls</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html> 

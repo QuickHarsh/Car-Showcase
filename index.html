@@ -3,8 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multiple on Click</title>
+    <title>Audi - Luxury Cars</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .model {
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .model-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .model:hover .model-overlay {
+            transform: translateY(0);
+        }
+        
+        .model-overlay a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #b0b0b0;
+            color: #1a1a1a;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        .model-overlay a:hover {
+            background-color: #f4f4f4;
+        }
+        
+        .model-card, .slider-image {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <header> 
@@ -13,10 +53,10 @@
                 <img src="images/6937487_preview.png" alt="Audi Logo">
             </div>
             <div class="links">
-                <a href="#">Home</a>
-                <a href="#">About Us</a>
-                <a href="#">Products</a>
-                <a href="#">Contact Us</a>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="products.html">Products</a>
+                <a href="contact.html">Contact Us</a>
             </div>
         </nav>
     </header>
@@ -34,14 +74,26 @@
         <div class="model one">
             <img src="images/q3_1.jpg" alt="Audi Q3">
             <h1>Audi Q3</h1>
+            <div class="model-overlay">
+                <p>Starting at $36,000</p>
+                <a href="car-details.html">View Details</a>
+            </div>
         </div>
         <div class="model two">
             <img src="images/s8.jpg" alt="Audi S8">
             <h1>Audi S8</h1>
+            <div class="model-overlay">
+                <p>Starting at $130,000</p>
+                <a href="car-details.html">View Details</a>
+            </div>
         </div>
         <div class="model three">
             <img src="images/rs7.jpg" alt="Audi RS 7">
             <h1>Audi RS 7</h1>
+            <div class="model-overlay">
+                <p>Starting at $114,000</p>
+                <a href="car-details.html">View Details</a>
+            </div>
         </div>
     </div>
 
@@ -55,6 +107,10 @@
             <li class="spd"><p>0-60mph</p><h1>3.7<p>sec</p></h1></li>
         </ul>
     </div>
+
+    <audio id="carSound" preload="auto">
+        <source src="sounds/car-accelerate.mp3" type="audio/mpeg">
+    </audio>
 
     <!-- Footer Section -->
     <footer class="foot">
@@ -121,6 +177,22 @@
         });
 
         setInterval(changeSlide, 3000); // Change slide every 3 seconds
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const carSound = document.getElementById('carSound');
+            const carElements = document.querySelectorAll('.model-card, .slider-image');
+            
+            carElements.forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    carSound.currentTime = 0; // Reset sound to start
+                    carSound.play();
+                });
+                
+                element.addEventListener('mouseleave', function() {
+                    carSound.pause();
+                });
+            });
+        });
     </script>
 </body>
 </html>
